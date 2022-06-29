@@ -1,0 +1,175 @@
+--[[
+#=====================================================================================
+#                               arcolinux
+# Date    : package-date
+# Source  : BunsenLabs smacz betatester
+# converted to conky 1.10 syntax for arcolinux by: postmaster and Erik Dubois
+# original config borrowed from BunsenLabs with love
+# Editor  : Erik Dubois at http://www.erikdubois.be
+# Version : package-version
+# License : Distributed under the terms of GNU GPL version 2 or later
+# Documentation : http://erikdubois.be
+#======================================================================================
+# CONKY
+# For commands in conky.config section:
+# http://conky.sourceforge.net/config_settings.html
+#
+# For commands in conky.text section:
+# http://conky.sourceforge.net/variables.html
+#
+# A PDF with all variables is provided
+#======================================================================================
+# FONTS
+# To avoid copyright infringements you will have to download
+# and install the fonts yourself sometimes.
+#=====================================================================================
+# GENERAL INFO ABOUT FONTS
+# Go and look for a nice font on sites like http://www.dafont.com/
+# Download and unzip - double click the font to install it (font-manager must be installed)
+# No font-manager then put fonts in ~/.fonts
+# Change the font name in the conky
+# The name can be known with a command in the terminal: fc-list | grep "part of name"
+# Change width and height of the conky according to font
+# Reboot your system or fc-cache -fv in terminal
+# Enjoy
+#=====================================================================================
+# FONTS FOR THIS CONKY
+# no extra font(s) needed
+#======================================================================================
+
+]]
+
+conky.config = {
+
+	--Various settings
+
+	background = true, 							-- forked to background
+	cpu_avg_samples = 2,						-- The number of samples to average for CPU monitoring.
+	diskio_avg_samples = 10,					-- The number of samples to average for disk I/O monitoring.
+	double_buffer = true,						-- Use the Xdbe extension? (eliminates flicker)
+	if_up_strictness = 'address',				-- how strict if testing interface is up - up, link or address
+	net_avg_samples = 2,						-- The number of samples to average for net data
+	no_buffers = true,							-- Subtract (file system) buffers from used memory?
+	temperature_unit = 'celsius',				-- fahrenheit or celsius
+	text_buffer_size = 2048,					-- size of buffer for display of content of large variables - default 256
+	update_interval = 1,						-- update interval
+	imlib_cache_size = 0,                       -- disable image cache to get a new spotify cover per song
+
+
+	--Placement
+
+	alignment = 'middle_left',		            -- top_left,top_middle,top_right,bottom_left,bottom_middle,bottom_right,
+												-- middle_left,middle_middle,middle_right,none
+	--Arch Duoscreen
+	--gap_x = -1910,
+	gap_x = 7,								-- pixels between right or left border
+	gap_y = 0,									-- pixels between bottom or left border
+	minimum_height = 200,						-- minimum height of window
+	minimum_width = 200,						-- minimum height of window
+	maximum_width = 160,						-- maximum height of window
+
+	--Graphical
+
+	border_inner_margin = 2, 					-- margin between border and text
+	border_outer_margin = 2, 					-- margin between border and edge of window
+	border_width = 0, 							-- border width in pixels
+	default_bar_width = 280,					-- default is 0 - full width
+	default_bar_height = 6,					    -- default is 6
+	default_gauge_height = 15,					-- default is 25
+	default_gauge_width =40,					-- default is 40
+	default_graph_height = 40,					-- default is 25
+	default_graph_width = 159,					-- default is 0 - full width
+	default_shade_color = '#000000',			-- default shading colour
+	default_outline_color = '#000000',			-- default outline colour
+	draw_borders = false,						-- draw borders around text
+	draw_graph_borders = true,					-- draw borders around graphs
+	draw_shades = false,						-- draw shades
+	draw_outline = false,						-- draw outline
+	stippled_borders = 0,						-- dashing the border
+
+	--Textual
+
+	extra_newline = false,						-- extra newline at the end - for asesome's wiboxes
+	format_human_readable = true,				-- KiB, MiB rather then number of bytes
+	font = 'Sans-serif:size=10',  			    -- font for complete conky unless in code defined
+	max_text_width = 0,							-- 0 will make sure line does not get broken if width too smal
+	max_user_text = 16384,						-- max text in conky default 16384
+	override_utf8_locale = true,				-- force UTF8 requires xft
+	short_units = true,							-- shorten units from KiB to k
+	top_name_width = 21,						-- width for $top name value default 15
+	top_name_verbose = false,					-- If true, top name shows the full command line of  each  process - Default value is false.
+	uppercase = false,							-- uppercase or not
+	use_spacer = 'none',						-- adds spaces around certain objects to align - default none
+	use_xft = true,								-- xft font - anti-aliased font
+	xftalpha = 1,								-- alpha of the xft font - between 0-1
+
+	--Windows
+
+	own_window = true,							-- create your own window to draw
+	own_window_argb_value = 190,			    -- real transparency - composite manager required 0-255
+	own_window_argb_visual = true,				-- use ARGB - composite manager required
+	own_window_class = 'Conky',					-- manually set the WM_CLASS name for use with xprop
+	own_window_colour = '#191C21',				-- set colour if own_window_transparent no
+	own_window_hints = 'undecorated,below,above,sticky,skip_taskbar,skip_pager',  -- if own_window true - just hints - own_window_type sets it
+	own_window_transparent = false,				-- if own_window_argb_visual is true sets background opacity 0%
+	own_window_title = 'asifbe4live-studios',			    -- set the name manually  - default conky "hostname"
+	own_window_type = 'desktop',				-- if own_window true options are: normal/override/dock/desktop/panel
+
+
+	--Colours
+
+	default_color = '#AAAAAA',  				-- default color and border color
+	color0 = '#6DB7FF',
+	color1 = '#AAAAAA',
+	color2 = '#FFEB33',
+	color3 = '#FFFFFF',
+	color4 = '#BDBDBD',
+	color5 = '#CCCCCC',
+	color6 = '#aa0000',
+
+	--Signal Colours
+	color7 = '#1F7411',  						--green
+	color8 = '#FFA726',  						--orange
+	color9 = '#FFFFFF',  						--firebrick
+
+
+	--Lua
+
+};
+conky.text = [[
+#${font Ubuntu Condensed:size=11}${voffset 0}${alignc}${time %A, %d %B %Y}
+${font Nimbus Sans Narrow:Bold:size=12}${color3}${alignc}Asifbe4live ${color0}Studios
+#${alignc 0}${font Nimbus Sans Narrow:size=13}${color1}${time %H:%M:%S}
+
+${font Ubuntu Condensed:size=9}${color2}SYSTEM ${color0}${alignr}$sysname$kernel
+${color1}Host:${alignr}${color2}${nodename}${color}
+${font Ubuntu Condensed:size=9}${color1}${color1}Uptime: ${color0}${alignr}${uptime}${color0}${alignr}
+-------------------------------------------------------------
+${color0}GPU Temp: ${alignr}${color0}${nvidia temp} °C
+#{color0}Fan Speed ${alignr}${color0}${execi 5 nvidia-settings -q [fan:1]/GPUCurrentFanSpeed -t} %
+${color2}GPU Clock ${alignr}${color5}${nvidia gpufreq} MHz
+${color0}Mem Clock ${alignr}${color0}${nvidia memfreq} MHz
+-------------------------------------------------------------
+${color0}GPU Mem ${alignr}${color0}${execi 5 nvidia-settings -q [gpu:0]/UsedDedicatedGPUMemory -t} / ${exec nvidia-settings -q [gpu:0]/TotalDedicatedGPUMemory -t} MiB
+-------------------------------------------------------------
+${color0}CPU Temp: ${color3}${alignr}${execi 10 sensors | grep 'Core 0' | awk {'print $3'}}
+${font Ubuntu Condensed:size=9}${color2}CPU Clock ${color5}${alignr} ${freq_g} Ghz
+${font Ubuntu Condensed:size=9}${color0}CPU % ${color5}${alignr} $cpu%
+${color0}Load: ${alignr}${loadavg 1}
+-------------------------------------------------------------
+${color0}Processes: ${alignr}${running_processes}/${processes}${color0}
+-------------------------------------------------------------
+${top name 1} ${color3}${alignr}${top cpu 1}
+-------------------------------------------------------------
+${font Ubuntu Condensed:size=9}${color2}RAM ${color0}${alignr}$mem - $memmax ${color1}$memperc%
+-------------------------------------------------------------
+${top_mem name 1} ${color3}${alignr}${top_mem mem 1}
+-------------------------------------------------------------
+${font Ubuntu Condensed:size=9}${color3}Network
+${color2}Download ${color2}${alignr}${color2}${downspeedf enp0s20f0u3} KiB/s
+${color2}${downspeedgraph enp0s20f0u3 10,}${color8}
+${color3}Upload ${color0}${alignr}${color0}${upspeedf enp0s20f0u3} KiB/s 
+${color3}${upspeedgraph enp0s20f0u3 10,}${color3}
+
+${font Nimbus Sans Narrow:Bold:size=11}${color0}${execi 6000 lsb_release -d | grep 'Descr'|awk {'print $2 " " $3" " $4" " $5'}}${alignr}${execi 6000 lsb_release -a | grep 'Release'|awk {'print $2""$3""$4""$5'}}${color}
+]];
