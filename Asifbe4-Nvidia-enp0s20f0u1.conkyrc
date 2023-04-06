@@ -114,7 +114,7 @@ ${font Ubuntu Condensed:size=10}${color0}${color1}Uptime: ${color0}${alignr}${up
 ${color0}Load: ${alignr}${loadavg 1}
 ----------------------------------------------------------------------------
 ${font Ubuntu Condensed:size=10}${color0}Gpu: ${alignr}${color0}${exec nvidia-smi --query-gpu=gpu_name --format=csv,noheader,nounits}$color
-${font Ubuntu Condensed:size=10}${color0}Gpu Mem ${alignr}${color0}${execi 5 nvidia-settings -q [gpu:0]/UsedDedicatedGPUMemory -t} / ${exec nvidia-settings -q [gpu:0]/TotalDedicatedGPUMemory -t} MiB
+${font Ubuntu Condensed:size=10}${color0}Gpu Mem ${alignr}${color2}${execi 5 nvidia-settings -q [gpu:0]/UsedDedicatedGPUMemory -t} / ${color0}${exec nvidia-settings -q [gpu:0]/TotalDedicatedGPUMemory -t} MiB
 ${font Ubuntu Condensed:size=10}${color0}Gpu Temp: ${alignr}${color0}${nvidia temp} °C
 ${font Ubuntu Condensed:size=10}${color0}Gpu Clock ${alignr}${color0}${nvidia gpufreq} MHz
 ${font Ubuntu Condensed:size=10}${color0}Mem Clock ${alignr}${color0}${nvidia memfreq} MHz
@@ -126,7 +126,7 @@ ${font Ubuntu Condensed:size=10}${color0}Cpu Usage ${color0}${alignr} $cpu%
 ${font Ubuntu Condensed:size=10}${color0}Cpu Temp ${color0}${alignr}${execi 10 sensors | grep 'Core 0' | awk {'print $3'}}
 ${font Ubuntu Condensed:size=10}${color0}Cpu Clock ${color0}${alignr} ${freq_g} Ghz
 ----------------------------------------------------------------------------
-${font Ubuntu Condensed:size=10}${color0}Nvme: ${color0}${alignr}$fs_used/$fs_size $fs_used_perc%
+${font Ubuntu Condensed:size=10}${color0}Nvme: ${color0}${alignr}${color2}$fs_used/${color0}$fs_size $fs_used_perc%
 ${font Ubuntu Condensed:size=10}${color0} Read ${alignr}${diskio_read}
 ${font Ubuntu Condensed:size=10}${color0} Write ${alignr}${diskio_write}
 ----------------------------------------------------------------------------
@@ -134,7 +134,7 @@ ${color0}Processes: ${alignr}${running_processes}/${processes}${color0}
 ----------------------------------------------------------------------------
 ${top name 1} ${color0}${alignr}${top cpu 1}
 ----------------------------------------------------------------------------
-${font Ubuntu Condensed:size=10}${color0}Ram ${color0}${alignr}$mem / $memmax ${color1}
+${font Ubuntu Condensed:size=10}${color0}Ram ${color0}${alignr}${color2}$mem / ${color0}$memmax
 ----------------------------------------------------------------------------
 ${top_mem name 1} ${color0}${alignr}${top_mem mem 1}
 ----------------------------------------------------------------------------
